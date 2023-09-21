@@ -10,18 +10,21 @@ export default {
 
         // 调用axios的初始化模块，发送远程Ajax请求
         return request({
+            baseURL: 'http://localhost:8110',
             url: '/admin/core/integralGrade/list',
             method: 'get'
         })
     },
     removeById(id) {
         return request({
+            baseURL: 'http://localhost:8110',
             url: `/admin/core/integralGrade/remove/${id}`,
             method: 'delete'
         })
     },
     save(integralGrade) {
         return request({
+            baseURL: 'http://localhost:8110',
             url: '/admin/core/integralGrade/save',
             method: 'post',
             data: integralGrade
@@ -29,16 +32,18 @@ export default {
     },
     getById(id) {
         return request({
+            baseURL: 'http://localhost:8110',
             url: `/admin/core/integralGrade/get/${id}`,
             method: 'get'
         })
     },
     updateById(integralGrade) {
         return request({
+            baseURL: 'http://localhost:8110',
             url: '/admin/core/integralGrade/update',
             method: 'put',
             data: integralGrade
         })
     },
-    
+
 }

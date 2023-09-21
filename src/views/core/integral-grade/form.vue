@@ -32,13 +32,17 @@ export default {
             saveBtnDisabled: false // 保存按钮是否禁用，防止表单重复提交
         }
     },
+    created() {
+        if (this.$route.params.id) {
+            this.fetchDataById(this.$route.params.id)
+        }
+    },
     methods: {
         saveOrUpdate() {
             // 禁用保存按钮
             this.saveBtnDisabled = true
             this.saveData()
         },
-
         // 新增数据
         saveData() {
             // debugger
@@ -55,11 +59,6 @@ export default {
             integralGradeApi.getById(id).then(response => {
                 this.integralGrade = response.data.record
             })
-        },
-        created() {
-            if (this.$route.params.id) {
-                this.fetchDataById(this.$route.params.id)
-            }
         },
         // 根据id更新记录
         updateData() {
