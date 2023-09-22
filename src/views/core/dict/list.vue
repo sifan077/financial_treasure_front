@@ -26,7 +26,7 @@
             </div>
         </el-dialog>
 
-        <el-table :data="list" border row-key="id" lazy :load="load">
+        <el-table :data="list" border row-key="id" lazy :load="getChildren">
             <el-table-column label="名称" align="left" prop="name" />
             <el-table-column label="编码" prop="dictCode" />
             <el-table-column label="值" align="left" prop="value" />
@@ -88,6 +88,9 @@ export default {
                 //负责将子节点数据展示在展开的列表中  
                 resolve(response.data.list)
             })
+        },
+        load(row, treeNode, resolve) {
+
         },
     },
     created() {
